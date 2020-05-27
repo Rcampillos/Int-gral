@@ -61,7 +61,11 @@ void loop(void)
   // Si la lectura no está en los extremos entonces vale
   if (sensor < 940 and sensor > 100) {
     // Aproximación polinómica Analogico0-Temperatura
-    float temp_obs = 60.79447-0.1409828*sensor+0.0001841956*pow(sensor,2)-0.00000009853718*pow(sensor,3);
+    float A = 4.603497e-02;
+    float B = 1.203854e-01;
+    float C = -1.877048e-04;
+    float D = 1.312035e-07;
+    float temp_obs = A+B*sensor+C*pow(sensor,2)+D*pow(sensor,3);
     Serial.print("    ");
     Serial.print(temp_obs);
     Serial.println(" ºC read");
