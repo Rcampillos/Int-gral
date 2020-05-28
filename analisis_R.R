@@ -10,7 +10,7 @@ abline(h=32.8, lty=2)
 abline(v=20, lty=2)
 legend("bottomright", legend=c("T. en el centro"),col="black", pch=1, cex=0.8)
 # Datos de calibración t_amb=25ºC HR 40%
-lectura <- c(145, 208, 307, 401, 535, 640, 739, 832, 908)
+lectura <- c(908, 832, 739, 640, 535, 401, 307, 208, 145)
 temp_cal <- c(13.4, 19.12, 22.75, 26.62, 30.62, 34.38, 39.94, 45.81, 52.70)
 #Errores datos
 delta_t <- 0.5
@@ -32,4 +32,4 @@ modelo_lin <- lm(temp_cal ~ poly(lectura, 1, raw=TRUE))
 lines(lectura,predict(modelo_lin),col="red")
 print("Datos ajuste lineal")
 print(summary(modelo_lin))
-legend("topleft", legend=c("Datos calibración", "Ajuste lineal", "Ajuste poli. grad. 3"),col=c("black", "red", "green"), lty=c(0,1,1), pch=c(1,NaN,NaN), cex=0.8)
+legend("topright", legend=c("Datos calibración", "Ajuste lineal", "Ajuste poli. grad. 3"),col=c("black", "red", "green"), lty=c(0,1,1), pch=c(1,NaN,NaN), cex=0.8)
